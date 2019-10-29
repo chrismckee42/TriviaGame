@@ -11,6 +11,7 @@ class questionObj {
 }
 
 const questions = []
+const options = ["a", "b", "c", "d"]
 var current = 0
 var count
 var time = 30
@@ -37,8 +38,9 @@ function loadQuestion(n) {
     $("#timer").empty()
     $("#question").append($("<h3>").text(q.question))
     q.answers.forEach((a, i) => {
-        $("#answers").append($("<div>").text(a).addClass("options").val(i))
+        $("#answers").append($("<div>").text(options[i] + ": " + a).addClass("options").val(i))
     });
+    $("#answers").append($("<br>"))
     time = 30
     $("#timer").text(time + " seconds left ")
 
